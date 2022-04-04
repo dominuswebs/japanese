@@ -28,18 +28,18 @@ function trainingSelectionHandler()
 
 	buttons.forEach((btn) => {
 		btn.addEventListener('click', (e) => {
-			console.log(e.target.id);
+			loadQuizData(e.target.id);
 		});
 	});
 }
 
-function questionSelectionHandler()
+function questionSelectionHandler(correctAnswer)
 {
 	let answers = document.querySelectorAll('.answer');
 
 	answers.forEach((answer) => {
 		answer.addEventListener('click', (e) => {
-			validateAnswer(e.target);
+			validateAnswer(correctAnswer, e.target);
 		});
 	});
 }
@@ -54,19 +54,20 @@ function prepareQuiz()
 {
 	// hide training options
 	document.getElementById('options').style.display = 'none';
-
-	loadQuestions()
-
+	// reset score
+	document.getElementById('score').innerText = '';
+	
+	loadQuestions();
 }
 
 function loadQuestions()
 {
 	// empty quiz area
 	let quizArea = document.getElementById('quiz-area');
-	
+
 	while(quizArea.firstChild)
 	{
-		parent.removeChild(parent.firstChild);
+		quizArea.removeChild(quizArea.firstChild);
 	}
 
 	// get 3 random questions
@@ -85,6 +86,8 @@ function loadQuestions()
 		);
 
 	quizArea.insertAdjacentHTML('beforeend', html);
+
+	questionSelectionHandler(questions[correctQuestion]['kanji']);
 }
 
 function getRandomQuestions(nQuestions)
@@ -93,8 +96,6 @@ function getRandomQuestions(nQuestions)
 	// copy array
 
 	let quizDataCopy = [...quizData];
-
-
 
 	for(let i = 1; i <= nQuestions; i++)
 	{
@@ -112,7 +113,85 @@ function getRandomNumber(max)
 	return Math.floor(Math.random() * max);
 }
 
-function questionsTemplate(question, answer1, answer2, answer3) {
+function validateAnswer(value, selection)
+{
+	if(value === selection.innerText)
+	{
+		updateScore(1);
+	} else {
+		updateScore(0);
+	}
+
+	loadQuestions();
+}
+
+function updateScore(val)
+{
+	let score = document.getElementById('score');
+
+	if(score.innerText)
+	{
+		let temp = score.innerText.split('/');
+		score.innerText = (parseInt(temp[0]) + val) + '/' + (parseInt(temp[1]) + 1);
+
+		temp = score.innerText.split('/');
+
+		updateScoreStyle((temp[0]/temp[1]).toFixed(2));
+
+	} else {
+		// first question
+		score.innerText = val + '/1';
+
+		let temp = score.innerText.split('/');
+
+		updateScoreStyle((temp[0]/temp[1]).toFixed(2));
+	}
+}
+
+function updateScoreStyle(ratio)
+{
+	let score = document.getElementById('score');
+
+	switch(true)
+	{
+		case ratio > 0.8:
+
+			score.style.color = '#008080';
+
+		break; 
+
+		case ratio > 0.6:
+
+			score.style.color = '#40E0D0';
+
+		break;
+
+		case ratio == 0.5:
+
+			score.style.color = '#FF6347';
+
+		break;
+
+		case ratio > 0.4:
+
+			score.style.color = '#FF0000';
+
+		break;
+
+		case ratio > 0.2:
+
+			score.style.color = '#DC143C';
+
+		break;
+
+		default:
+
+			score.style.color = '#8B0000';
+	}
+}
+
+function questionsTemplate(question, answer1, answer2, answer3) 
+{
 
 	return `<div id="question">
 		<div id="question-header">
@@ -124,6 +203,4 @@ function questionsTemplate(question, answer1, answer2, answer3) {
 			<div class="answer">${answer3}</div>
 		</div>
 	</div>`;
-} 
-
-loadQuizData('kanji');
+}

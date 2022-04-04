@@ -9,6 +9,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: noto;
+	overflow: hidden;
 }
 
 #container {
@@ -67,6 +68,13 @@ html, body {
 .answer:hover {
 	background: crimson;
 	color: #FFF;
+}
+
+#score {
+	position: absolute;
+    right: -100px;
+    font-size: 40px;
+    top: -50px;
 }
 
 #flag {

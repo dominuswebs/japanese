@@ -723,6 +723,96 @@
         "english":"meal",
         "hiragana":"しょくじ",
         "kanji":"食事"
+    },
+    {
+        "english":"medicine",
+        "hiragana":"くすり",
+        "kanji":"薬"
+    },
+    {
+        "english":"buy",
+        "hiragana":"かう",
+        "kanji":"買う"
+    },
+    {
+        "english":"drink",
+        "hiragana":"のむ",
+        "kanji":"飲む"
+    },
+    {
+        "english":"rest",
+        "hiragana":"やすむ",
+        "kanji":"休む"
+    },
+    {
+        "english":"lunch break",
+        "hiragana":"ひるやすみ",
+        "kanji":"昼休み"
+    },
+    {
+        "english":"meet",
+        "hiragana":"あう",
+        "kanji":"会う"
+    },
+    {
+        "english":"drinking party",
+        "hiragana":"のみかい",
+        "kanji":"飲み会"
+    },
+    {
+        "english":"(dinner/lunch/breakfast) meeting",
+        "hiragana":"しょくじかい",
+        "kanji":"食事会"
+    },
+    {
+        "english":"meal",
+        "hiragana":"しょくじ",
+        "kanji":"食事"
+    },
+    {
+        "english":"meeting",
+        "hiragana":"かいぎ",
+        "kanji":"会議"
+    },
+    {
+        "english":"write",
+        "hiragana":"かく",
+        "kanji":"書く"
+    },
+    {
+        "english":"read",
+        "hiragana":"よむ",
+        "kanji":"読む"
+    },
+    {
+        "english":"country",
+        "hiragana":"くに",
+        "kanji":"国"
+    },
+    {
+        "english":"china",
+        "hiragana":"ちゅうごく",
+        "kanji":"中国"
+    },
+    {
+        "english":"ahead",
+        "hiragana":"さきに",
+        "kanji":"先に"
+    },
+    {
+        "english":"first",
+        "hiragana":"おさきに",
+        "kanji":"お先に"
+    },
+    {
+        "english":"last week",
+        "hiragana":"せんしゅう",
+        "kanji":"先週"
+    },
+    {
+        "english":"last month",
+        "hiragana":"せんげつ",
+        "kanji":"先月"
     }
 ]
 

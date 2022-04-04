@@ -1,24 +1,202 @@
 [
     {
-        "english":"",
-        "stem":"verb without masu",
-        "masu-form": {
-            "affirmative":"",
-            "negative":"",
-            "past-affirmative":"",
-            "past-negative":""
-        },
-        "dictionary-form": {
-            "affirmative":"",
-            "negative":"",
-            "past-affirmative":"",
-            "past-negative":""
-        },
-        "te-form":"with imasu it becomes i'm doing something with mimasu is im going to try something",
-        "grammar": {
-            "tai":"I want to do something",
-            ""
-
-        }
+        "english":"arrive",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"borrow",
+        "hiragana":"かります"
+    },
+    {
+        "english":"bring",
+        "hiragana":"もってきます"
+    },
+    {
+        "english":"buy",
+        "hiragana":"かいます"
+    },
+    {
+        "english":"close",
+        "hiragana":"しめます"
+    },
+    {
+        "english":"deliver",
+        "hiragana":"とどけます"
+    },
+    {
+        "english":"drink",
+        "hiragana":"のみます"
+    },
+    {
+        "english":"eat",
+        "hiragana":"たべます"
+    },
+    {
+        "english":"enter",
+        "hiragana":"はいります"
+    },
+    {
+        "english":"get on",
+        "hiragana":"のります"
+    },
+    {
+        "english":"get off",
+        "hiragana":"おります"
+    },
+    {
+        "english":"give",
+        "hiragana":"あげます"
+    },
+    {
+        "english":"have a meal",
+        "hiragana":"しょくじをします"
+    },
+    {
+        "english":"hold/carry",
+        "hiragana":"もちます"
+    },
+    {
+        "english":"learn",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"leave",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"lend",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"listen",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"make",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"meet",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"open",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"play/hang out",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"put something in",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"read",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"receive",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"run",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"say",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"send",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"shopping",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"show",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"stand",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"stay",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"stop",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"smoke",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"swim",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"talk",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"take a photo",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"take time",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"teach/tell/show how",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"to go",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"to come",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"to return",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"turn/bend",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"turn on",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"turn off",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"use",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"wait",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"watch/look",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"walk",
+        "hiragana":"つきます"
+    },
+    {
+        "english":"write/draw",
+        "hiragana":"つきます"
     }
 ]
