@@ -2,24 +2,44 @@ window.addEventListener('DOMContentLoaded', (e) => {
 	init();
 });
 
-var quizData;
+let _quizData;
+let _quizType = '';
+let _quizSelected = '';
 
 function init()
 {
 	// run all necessary functions
-	trainingSelectionHandler();
+	loadMenu();
 }
 
-function loadQuizData(file)
+function loadQuizData(quiz)
 {
-	let json = loadJson(file);
+	// if the id is a combination of file and option
+	if(quiz.includes('-'))
+	{
+		let path = quiz.split('-');
 
-	json.then(function(data){
+		let json = loadJson(path[0]);
 
-		quizData = data;
+		json.then(function(data){
 
-		prepareQuiz();
-	});
+			_quizData = data[path[1]];
+
+			prepareQuiz(quiz);
+		});
+
+	} else {
+
+		let json = loadJson(quiz);
+
+		json.then(function(data){
+
+			_quizData = data;
+
+			prepareQuiz(quiz);
+		});
+	}
+
 }
 
 function trainingSelectionHandler()
@@ -28,7 +48,14 @@ function trainingSelectionHandler()
 
 	buttons.forEach((btn) => {
 		btn.addEventListener('click', (e) => {
-			loadQuizData(e.target.id);
+			
+			if(Array.isArray(_menuOptions[e.target.id]))
+			{
+				_quizType = e.target.id;
+				loadMenu(_menuOptions[e.target.id]);
+			} else {
+				loadQuizData(e.target.id);
+			}
 		});
 	});
 }
@@ -50,13 +77,15 @@ async function loadJson(file)
 	.then(response => response.json())
 }
 
-function prepareQuiz()
+function prepareQuiz(quiz)
 {
 	// hide training options
 	document.getElementById('options').style.display = 'none';
 	// reset score
 	document.getElementById('score').innerText = '';
 	
+	_quizSelected = quiz;
+
 	loadQuestions();
 }
 
@@ -79,15 +108,15 @@ function loadQuestions()
 	// prepare template
 
 	let html = questionsTemplate(
-		questions[correctQuestion]['hiragana'], 
-		questions[0]['kanji'], 
-		questions[1]['kanji'], 
-		questions[2]['kanji']
+		questions[correctQuestion][_quizSettings[_quizSelected]['display']], 
+		questions[0][_quizSettings[_quizSelected]['options']], 
+		questions[1][_quizSettings[_quizSelected]['options']], 
+		questions[2][_quizSettings[_quizSelected]['options']]
 		);
 
 	quizArea.insertAdjacentHTML('beforeend', html);
 
-	questionSelectionHandler(questions[correctQuestion]['kanji']);
+	questionSelectionHandler(questions[correctQuestion][_quizSettings[_quizSelected]['options']]);
 }
 
 function getRandomQuestions(nQuestions)
@@ -95,7 +124,7 @@ function getRandomQuestions(nQuestions)
 	let rQuestions = [];
 	// copy array
 
-	let quizDataCopy = [...quizData];
+	let quizDataCopy = [..._quizData];
 
 	for(let i = 1; i <= nQuestions; i++)
 	{
@@ -111,6 +140,10 @@ function getRandomQuestions(nQuestions)
 function getRandomNumber(max)
 {
 	return Math.floor(Math.random() * max);
+}
+
+function getKeyByValue(object, value) {
+	return Object.keys(object).find(key => object[key] === value);
 }
 
 function validateAnswer(value, selection)
@@ -188,6 +221,45 @@ function updateScoreStyle(ratio)
 
 			score.style.color = '#8B0000';
 	}
+}
+
+function loadMenu(menu = null)
+{
+	// empty menu area
+	let menuArea = document.getElementById('options');
+
+	while(menuArea.firstChild)
+	{
+		menuArea.removeChild(menuArea.firstChild);
+	}
+
+	let menuOptions;
+
+	// not initial menu
+	if(menu)
+	{
+		menuOptions = menu;
+	}
+	else {
+		menuOptions = Object.keys(_menuOptions);
+	}
+
+	menuOptions.forEach((option) => {
+		let html = menuOptionsTemplate(option);
+		menuArea.insertAdjacentHTML('beforeend', html);
+	});
+
+	trainingSelectionHandler();
+}
+
+function menuOptionsTemplate(value)
+{
+	if(_quizType)
+	{
+		return `<div id="${_quizType}-${value}" class="training-option">${value}</div>`;
+	}
+
+	return `<div id="${value}" class="training-option">${value}</div>`;
 }
 
 function questionsTemplate(question, answer1, answer2, answer3) 
