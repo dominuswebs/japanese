@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Speech</title>
+</head>
+<body>
+
+	<!-- <p id="text">こんにちは</p> -->
+
+	<p id="text">hello</p>
+
+	<button id="click">Talk</button>
+
+	<script>
+
+
+		
+		document.getElementById('click').addEventListener('click', function(){
+
+				let utterance = new SpeechSynthesisUtterance('オーストラリア は 日本 より 大きいです');
+
+				utterance.voice = speechSynthesis.getVoices()[18];
+				utterance.lang = 'ja-JP';
+				// 0.5 to 2 (not all voices). 1 is normal 2 is double speed, .5 half
+				utterance.rate = 1;
+
+				speechSynthesis.speak(utterance);
+
+				utterance = new SpeechSynthesisUtterance('A社の　コンピュータより　安くて　いい　コンピュータが　ありますか');
+
+				utterance.voice = speechSynthesis.getVoices()[18];
+				utterance.lang = 'ja-JP';
+				// 0.5 to 2 (not all voices). 1 is normal 2 is double speed, .5 half
+				utterance.rate = 1;
+
+				speechSynthesis.speak(utterance);
+		});
+
+
+
+
+
+		// let text = document.getElementById('text').textContent;
+
+		// function say(text)
+		// {
+		// 	let say = new SpeechSynthesisUtterance(text);
+
+		// 	speechSynthesis.speak(say);
+		// }
+
+		// say(text);
+
+
+		// console.log(text);
+
+	</script>
+</body>
+</html>
